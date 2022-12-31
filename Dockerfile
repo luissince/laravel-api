@@ -52,21 +52,26 @@ RUN a2enmod rewrite
 
 COPY . /var/www/html/
 
-RUN apt-get update
+RUN apt-get update && apt-get install -y \
+        nano \
+        git \
+        libicu-dev \
+        libxml2-dev \
+        vim
 
-RUN apt-get install nano -y
+#RUN apt-get install nano -y
 
-RUN apt-get install git -y
+#RUN apt-get install git -y
 
 #RUN apt-get install zlibig-dev -y
 
-RUN apt-get install libicu-dev -y
+#RUN apt-get install libicu-dev -y
 
-RUN apt-get install libxml2-dev -y
+#RUN apt-get install libxml2-dev -y
 
 #RUN apt-get install libpq -y
 
-RUN apt-get install vim -y
+#RUN apt-get install vim -y
 
 RUN docker-php-ext-install pdo pdo_mysql zip intl xmlrpc soap opcache
 
