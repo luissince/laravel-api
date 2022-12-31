@@ -58,7 +58,7 @@ RUN apt-get install nano -y
 
 RUN apt-get install git -y
 
-RUN apt-get install zlibig-dev -y
+#RUN apt-get install zlibig-dev -y
 
 RUN apt-get install libicu-dev -y
 
