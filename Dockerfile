@@ -52,6 +52,8 @@ RUN a2enmod rewrite
 
 COPY . /var/www/html/
 
+COPY vhost.conf /etc/apache2/sites-available/000-default.conf
+
 RUN apt-get update
 
 RUN apt-get install nano -y
