@@ -92,15 +92,22 @@ RUN docker-php-ext-configure pdo_mysql
 
 #RUN docker-php-ext-configure pdo_mysql --with-pdo-mysql-mysqlnd
 
-RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+################################
+#           COMPOSER           #
+################################
 
-RUN php -r "if (hash_file('sha384', 'composer-setup.php') === '55ce33d7678c5a611085589f1f3ddf8b3c52d662cd01d4ba75c0ee0459970c2200a51f492d557530c71c15d8dba01eae') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+#RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 
-RUN php composer-setup.php
+#RUN php -r "if (hash_file('sha384', 'composer-setup.php') === '55ce33d7678c5a611085589f1f3ddf8b3c52d662cd01d4ba75c0ee0459970c2200a51f492d557530c71c15d8dba01eae') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
 
-RUN php -r "unlink('composer-setup.php');"
+#RUN php composer-setup.php
 
-RUN mv composer.phar /usr/local/bin/composer
+#RUN php -r "unlink('composer-setup.php');"
+
+#RUN mv composer.phar /usr/local/bin/composer
+
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 WORKDIR /var/www/html/
 
