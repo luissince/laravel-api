@@ -72,13 +72,15 @@ RUN docker-php-ext-install pdo
 
 RUN docker-php-ext-install pdo_mysql
 
-RUN docker-php-ext-install zip
+#RUN docker-php-ext-install zip
 
 RUN docker-php-ext-install intl
 
 RUN docker-php-ext-install xmlrpc
 
 RUN docker-php-ext-install soap
+
+RUN docker-php-ext-install opcache
 #RUN docker-php-ext-install pdo pdo_mysql zip intl xmlrpc soap opcache
 
 #RUN docker-php-ext-configure pdo_mysql --with-pdo-mysql-mysqlnd
