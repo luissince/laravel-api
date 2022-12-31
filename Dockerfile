@@ -64,7 +64,7 @@ RUN apt-get install libicu-dev -y
 
 RUN apt-get install libxml2-dev -y
 
-RUN apt-get install libpq -y
+#RUN apt-get install libpq -y
 
 RUN apt-get install vim -y
 
