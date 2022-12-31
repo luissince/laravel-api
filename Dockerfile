@@ -58,6 +58,16 @@ RUN apt-get install nano -y
 
 RUN apt-get install git -y
 
+RUN apt-get install zlibig-dev -y
+
+RUN apt-get install libicu-dev -y
+
+RUN apt-get install libxml2-dev -y
+
+RUN apt-get install libpq -y
+
+RUN apt-get install vim -y
+
 WORKDIR /var/www/html/
 
 RUN chown -R www-data:www-data /var/www/html
