@@ -21,7 +21,7 @@ class AuthController extends Controller
 
     public function login(LoginRequest $request)
     {
-        sleep(20);
+        // sleep(20);
         $user = User::where("email", "=", $request->email)->first();
 
         if (isset($user->id)) {
