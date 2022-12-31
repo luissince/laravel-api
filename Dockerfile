@@ -68,9 +68,9 @@ RUN apt-get install libxml2-dev -y
 
 RUN apt-get install vim -y
 
-RUN docker-php-ext-install pdo pdo_mysql zip intl xmlrpc soap opcache
+#RUN docker-php-ext-install pdo pdo_mysql zip intl xmlrpc soap opcache
 
-RUN docker-php-ext-configure pdo_mysql --with-pdo-mysql-mysqlnd
+#RUN docker-php-ext-configure pdo_mysql --with-pdo-mysql-mysqlnd
 
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 
