@@ -10,12 +10,13 @@ class AuthenticateException extends Exception
 
     protected $message = 'AuthenticateException';
 
-    public function report(){
+    public function report()
+    {
         return false;
     }
 
-    public function render($request){
-        return response()->json(["message" => $this->message],401);
+    public function render($request)
+    {
+        return response()->json(["message" => $this->message], 400);
     }
-
 }

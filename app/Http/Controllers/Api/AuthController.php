@@ -21,7 +21,6 @@ class AuthController extends Controller
 
     public function login(LoginRequest $request)
     {
-        // sleep(20);
         $user = User::where("email", "=", $request->email)->first();
 
         if (isset($user->id)) {
@@ -29,7 +28,6 @@ class AuthController extends Controller
                 $token = $user->createToken("auth_token")->plainTextToken;
                 return response(compact('user', 'token'), 200);
             }
-
             throw new AuthenticateException("La password es incorrecta");
         }
         throw new AuthenticateException("Usuario no registrado");
