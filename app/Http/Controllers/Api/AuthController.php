@@ -23,14 +23,22 @@ class AuthController extends Controller
     {
         $user = User::where("email", "=", $request->email)->first();
 
-        if (isset($user->id)) {
-            if (Hash::check($request->password, $user->password)) {
-                $token = $user->createToken("auth_token")->plainTextToken;
-                return response(compact('user', 'token'), 200);
-            }
-            throw new AuthenticateException("La password es incorrecta");
+        if (!isset($user->id)) {
+            return response()->json([
+                "message" => "El email no existe."
+            ], 400);
+            //throw new AuthenticateException("La password es incorrecta");
         }
-        throw new AuthenticateException("Usuario no registrado");
+
+        if (!Hash::check($request->password, $user->password)) {
+            return response()->json([
+                "message" => "La contraseña es incorrecta."
+            ], 400);
+        }
+
+        $token = $user->createToken("auth_token")->plainTextToken;
+        return response(compact('user', 'token'), 200);
+        //throw new AuthenticateException("Usuario no registrado");
     }
 
     public function logout(Request $request)
