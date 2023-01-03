@@ -26,9 +26,6 @@ class UserController extends Controller
      */
     public function index(UserRequest $request)
     {
-        // $user = User::all();
-        // return response()->json(array('user' => $user));
-        // return UserResource::collection(User::all());
         return UserResource::collection(User::query()->orderBy('id', 'desc')->paginate(10));
     }
 
