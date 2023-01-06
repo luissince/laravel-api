@@ -16,6 +16,7 @@ class Handler extends ExceptionHandler
      */
     protected $dontReport = [
         AuthenticateException::class,
+        ServerErrorException::class,
         JsonAuthorizationException::class,
         JsonValidationException::class,
     ];
@@ -42,9 +43,9 @@ class Handler extends ExceptionHandler
             //
         });
 
-        $this->renderable(function (NotFoundHttpException $e,Request $request) {
+        $this->renderable(function (NotFoundHttpException $e, Request $request) {
             if ($request->is('api/*')) {
-                return response('Record not found.', 404);
+                return response()->json(["message" => "Ruta no encontrada"], 404);
             }
         });
     }

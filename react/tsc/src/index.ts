@@ -1,15 +1,15 @@
 //types date
 
-let myString : string = "myString";
-let myNumber : number = 33;
-let myBoolean : boolean = false;
+let myString: string = "myString";
+let myNumber: number = 33;
+let myBoolean: boolean = false;
 
-let array1 : number[] = [1, 2, 3];
-let array2 : Array<number> = [1, 2, 3];
+let array1: number[] = [1, 2, 3];
+let array2: Array<number> = [1, 2, 3];
 
-let tupla1 : [string, number, boolean]= ['Doaa',2,true];
+let tupla1: [string, number, boolean] = ['Doaa', 2, true];
 
-let truplaArr : [number, string][];
+let truplaArr: [number, string][];
 
 truplaArr = [
     [1, 'qwe'],
@@ -42,7 +42,7 @@ console.log(Roles.User);
 
 // Type assetion o cast
 
-let channel : any = 'Dominicode';
+let channel: any = 'Dominicode';
 
 let channelStr = <String>channel;
 
@@ -51,11 +51,11 @@ let channelStr = <String>channel;
 // const myCanvas2 = <HTMLCanvasElement>document.getElementById("main") ;
 
 
-function greet(name : String){
+function greet(name: String) {
     console.log(`My name is ${name}`);
 }
 
-function getNumber() : number {
+function getNumber(): number {
     return Math.floor(Math.random() * 100);
 }
 
@@ -63,40 +63,71 @@ greet("juan");
 
 console.log(getNumber());
 
-function printPosition(x : number | string = 10, y : number | string = 20){
-    console.log(`Longitud and latitud : ${x}, ${y}`); 
+function printPosition(x: number | string = 10, y: number | string = 20) {
+    console.log(`Longitud and latitud : ${x}, ${y}`);
 }
 
-printPosition(100,60);
+printPosition(100, 60);
 
-interface Book{
+interface Book {
     id: number;
     title: string;
     author: string;
     coAuthor?: string;
-    isLoan?: (title: string)=>void;
+    isLoan?: (title: string) => void;
 }
 
-const book:Book = {
+const book: Book = {
     id: 100,
     title: "asd",
     author: ""
 }
 
-const books : Book[] = [];
+const books: Book[] = [];
 
 function getBook(): Book {
-    return {id: 1, title:"", author:"",};
+    return { id: 1, title: "", author: "", };
 }
 
 const myBook = getBook();
 
-function createBook(book:Book) : Book {
+function createBook(book: Book): Book {
     return book;
 }
 
 const newBook: Book = {
-    id: 1, title:"", author:"",
+    id: 1, title: "", author: "",
 };
 
 createBook(newBook);
+
+interface Person {
+    id: number;
+    name: String;
+}
+
+interface Employee extends Person {
+    dept: String;
+}
+
+interface Customer extends Person {
+    country: String;
+}
+
+interface Animal {
+    name: String;
+    getDogs: () => void;
+    getCat: () => void;
+}
+
+class Zoo implements Animal {
+    name = 'Muhh';
+
+    getDogs(): void {
+
+    }
+
+    getCat(): void {
+
+    }
+}

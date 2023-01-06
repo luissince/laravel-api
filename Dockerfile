@@ -118,3 +118,35 @@ RUN composer install
 RUN php artisan key:generate
 
 EXPOSE 8000
+
+#http://tp.syssoftintegra.com/
+
+#apt-get install python3 -y
+
+#apt-get install python3-dev -y
+
+#apt-get install py3-pip -y
+
+#apt-get install build-base -y
+
+#apt-get install libressl-dev -y
+
+#apt-get install musl-dev -y
+
+#apt-get install libffi-dev -y
+
+#apt-get install rust  -y
+
+#apt-get install cargo -y
+
+#apt-get install python3-pip -y
+
+#pip3 install pip --upgrade
+
+#pip3 install certbot-nginx
+
+#mkdir /etc/letsencrypt
+
+#certbot --nginx -d tp.syssoftintegra.com
+
+#certbot --nginx -d db.syssoftintegra.com
