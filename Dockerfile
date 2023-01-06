@@ -117,6 +117,8 @@ RUN composer install
 
 RUN php artisan key:generate
 
+RUN composer dump-autoload
+
 EXPOSE 8000
 
 #http://tp.syssoftintegra.com/
