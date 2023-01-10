@@ -152,3 +152,9 @@ EXPOSE 8000
 #certbot --nginx -d tp.syssoftintegra.com
 
 #certbot --nginx -d db.syssoftintegra.com
+
+#certbot --nginx --keep-until-expiring -m alexander_dx_10@hotmail.com --agree-tos  --redirect --no-eff-email -d tp.syssoftintegra.com
+
+#certbot --nginx --keep-until-expiring -m alexander_dx_10@hotmail.com --agree-tos -d tp.syssoftintegra.com  --redirect --no-eff-email
+
+#certbot --nginx --keep-until-expiring -m alexander_dx_10@hotmail.com --agree-tos -d next.syssoftintegra.com  --redirect --no-eff-email
