@@ -47,6 +47,7 @@ class AuthController extends Controller
                 "idusuario" => $user->idusuario,
             ), "token" => $jwt));
         } catch (PDOException $ex) {
+            error_log($ex->getMessage());
             throw new ServerErrorException('Error interno del servidor.');
         }
     }
@@ -54,6 +55,10 @@ class AuthController extends Controller
     public function logout(Request $request)
     {
         return response()->json(array('message' => 'Sessión cerrada.'), 204);
+    }
+
+    public function validtoken(Request $request){
+        return response()->json(array('message' => 'Token valido.'));
     }
 
     public function contribuyente(Request $request)

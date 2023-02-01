@@ -86,6 +86,20 @@ RUN docker-php-ext-install opcache
 
 RUN docker-php-ext-configure pdo_mysql
 
+##########################################
+
+RUN docker-php-ext-install php7.4-dev
+
+RUN docker-php-ext-install xml
+
+RUN docker-php-ext-install gd
+
+RUN docker-php-ext-configure imagick docker-php-ext-install imagick
+
+#docker-php-ext-enable gd
+
+##########################################
+
 #RUN docker-php-ext-configure --with-pdo-mysql-mysqlnd
 
 #RUN docker-php-ext-install pdo pdo_mysql zip intl xmlrpc soap opcache
@@ -153,8 +167,10 @@ EXPOSE 8000
 
 #certbot --nginx -d db.syssoftintegra.com
 
-#certbot --nginx --keep-until-expiring -m alexander_dx_10@hotmail.com --agree-tos  --redirect --no-eff-email -d tp.syssoftintegra.com
-
 #certbot --nginx --keep-until-expiring -m alexander_dx_10@hotmail.com --agree-tos -d tp.syssoftintegra.com  --redirect --no-eff-email
 
 #certbot --nginx --keep-until-expiring -m alexander_dx_10@hotmail.com --agree-tos -d next.syssoftintegra.com  --redirect --no-eff-email
+
+#CMD ["certbot","--nginx","--keep-until-expiring","-m","alexander_dx_10@hotmail.com","--agree-tos","-d","tp.syssoftintegra.com","--redirect","--no-eff-email"]
+
+#CMD ["certbot","--nginx","--keep-until-expiring","-m","alexander_dx_10@hotmail.com","--agree-tos","-d","next.syssoftintegra.com","--redirect","--no-eff-email"]

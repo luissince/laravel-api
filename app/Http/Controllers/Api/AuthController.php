@@ -6,9 +6,7 @@ use App\Exceptions\AuthenticateException;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use App\Models\User;
-use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -24,21 +22,15 @@ class AuthController extends Controller
         $user = User::where("email", "=", $request->email)->first();
 
         if (!isset($user->id)) {
-            return response()->json([
-                "message" => "El email no existe."
-            ], 400);
-            //throw new AuthenticateException("La password es incorrecta");
+            throw new AuthenticateException("El email no existe.");
         }
 
         if (!Hash::check($request->password, $user->password)) {
-            return response()->json([
-                "message" => "La contraseña es incorrecta."
-            ], 400);
+            throw new AuthenticateException("La contraseña es incorrecta.");
         }
 
         $token = $user->createToken("auth_token")->plainTextToken;
         return response(compact('user', 'token'), 200);
-        //throw new AuthenticateException("Usuario no registrado");
     }
 
     public function logout(Request $request)

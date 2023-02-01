@@ -31,7 +31,7 @@ class EnsureTokenIsValid
         } catch (SignatureInvalidException $ex) {
             return response()->json(array('message' => 'Token invalido.'), 401);
         } catch (Throwable $ex) {
-            throw new ServerErrorException('Error interno del servidor.');
+            throw new ServerErrorException('Cabecera no encontrada.');
         }
     }
 }

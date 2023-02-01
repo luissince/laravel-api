@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Session\AuthController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Voucher\VoucherController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,10 +29,12 @@ use Illuminate\Support\Facades\Route;
 
 // Route::post('/signup', [UserController::class, 'signup']);
 
- Route::post('/login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'login']);
 
- Route::delete('/logout', [AuthController::class, 'logout']);
+Route::delete('/logout', [AuthController::class, 'logout']);
 
- Route::get('/contribuyente', [AuthController::class, 'contribuyente']);
+Route::get('/contribuyente', [AuthController::class, 'contribuyente']);
 
+Route::get('/validtoken', [AuthController::class, 'validtoken']);
 
+Route::get('/lista', [VoucherController::class, 'lista']);
